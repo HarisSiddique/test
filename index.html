@@ -26,126 +26,116 @@
   <input type="text" name="result" size=24 readonly>
   </br>
   </br>
-  <input type="button" name="7" value="7" OnClick="run7()" style="width:40px">
-  <input type="button" name="8" value="8" OnClick="run8()" style="width:40px">
-  <input type="button" name="9" value="9" OnClick="run9()" style="width:40px">
-  <input type="button" name="mul" value="*" OnClick="runMul()" style="width:40px">
+  <input type="button" name="7" value="7" OnClick="NumPressed(7)" style="width:40px">
+  <input type="button" name="8" value="8" OnClick="NumPressed(8)" style="width:40px">
+  <input type="button" name="9" value="9" OnClick="NumPressed(9)" style="width:40px">
+  <input type="button" name="mul" value="*" OnClick="Operation('*')" style="width:40px">
   </br>
-  <input type="button" name="4" value="4" OnClick="run4()" style="width:40px">
-  <input type="button" name="5" value="5" OnClick="run5()" style="width:40px">
-  <input type="button" name="6" value="6" OnClick="run6()" style="width:40px">
-  <input type="button" name="div" value="/" OnClick="runDiv()" style="width:40px">
+  <input type="button" name="4" value="4" OnClick="NumPressed(4)" style="width:40px">
+  <input type="button" name="5" value="5" OnClick="NumPressed(5)" style="width:40px">
+  <input type="button" name="6" value="6" OnClick="NumPressed(6)" style="width:40px">
+  <input type="button" name="div" value="/" OnClick="Operation('/')" style="width:40px">
   </br>
-  <input type="button" name="1" value="1" OnClick="run1()" style="width:40px">
-  <input type="button" name="2" value="2" OnClick="run2()" style="width:40px">
-  <input type="button" name="3" value="3" OnClick="run3()" style="width:40px">
-  <input type="button" name="dot" value="." OnClick="runDot()" style="width:40px">
+  <input type="button" name="1" value="1" OnClick="NumPressed(1)" style="width:40px">
+  <input type="button" name="2" value="2" OnClick="NumPressed(2)" style="width:40px">
+  <input type="button" name="3" value="3" OnClick="NumPressed(3)" style="width:40px">
+  <input type="button" name="dot" value="." OnClick="Decimal()" style="width:40px">
   </br>
-  <input type="button" name="plus" value="+" OnClick="runPlus()" style="width:40px">
-  <input type="button" name="0" value="0" OnClick="run0()" style="width:40px">
-  <input type="button" name="min" value="-" OnClick="runMin()" style="width:40px">
-  <input type="button" name="equal" value="=" OnClick="runEqual()" style="width:40px">
+  <input type="button" name="plus" value="+" OnClick="Operation('+')" style="width:40px">
+  <input type="button" name="0" value="0" OnClick="NumPressed(0)" style="width:40px">
+  <input type="button" name="min" value="-" OnClick="Operation('-')" style="width:40px">
+  <input type="button" name="equal" value="=" OnClick="Operation('=')" style="width:40px">
   </br>
-  <input type="button" name="clear" value="C" OnClick="runCl()" style="width:80px">
-  </br>
-  <input id="btn7" type="Button" value="  7  " onclick="NumPressed(7)">
-  <input id="btn8" type="Button" value="  8  " onclick="NumPressed(8)">        
-  <input id="btn9" type="Button" value="  9  " onclick="NumPressed(9)">
-  <input id="btnC" type="Button" value="  C  " onclick="Clear()">
-  </br>
-  <input id="btn4" type="Button" value="  4" onclick="NumPressed(4)">
-  <input id="btn5" type="Button" value="  5   "onclick="NumPressed(5)">       
-  <input id="btn6" type="Button" value="  6  " onclick="NumPressed(6)">
-  <input id="btnplusminus" type="Button" value=" +/- " onclick="Neg()">
-  <input id="btnplus" type="Button" value="  +  " onclick="Operation('+')">
-  </br>
-  <input id="btn1" type="Button" value="  1  " onclick="NumPressed(1)">
-  <input id="btn2" type="Button" value="  2  " onclick="NumPressed(2)">       
-  <input id="btn3" type="Button" value="  3  " onclick="NumPressed(3)">
-  <input id="btnmultiply" type="Button" value="  *  " onclick="Operation('*')">
-  <input id="btnminus" type="Button" value="   -   " onclick="Operation('-')">
-  </br>
-  <input id="btn0" type="Button" value="  0  " onclick="NumPressed(0)">
-  <input id="btndecimal" type="Button" value="   .  " onclick="Decimal()">      
-  <input id="btndivide" type="Button" value="   /   " onclick="Operation('/')">
-  <input id="btnequals" type="Button" value="  =  " onclick="Operation('=')">
+  <input type="button" name="plusminus" value="C" OnClick="Neg()" style="width:75px">
+  <input type="button" name="clear" value="C" OnClick="Clear()" style="width:75px">
+  
+      
+  
+  
     
 </form>
 
 
 <script>
+  
+var FKeyPad = document.frm;
+var Accumulate = 0;
+var FlagNewNum = false;
+var PendingOp = "";
+function NumPressed(Num)
+{
+  if(FlagNewNum)
+  {
+    FKeyPad.result.value  = Num;
+    FlagNewNum = false;
+  }
+  else
+  {
+    if(FKeyPad.result.value == "0")
+      FKeyPad.result.value = Num;
+    else
+      FKeyPad.result.value += Num;
+  }
+}
+  
+function Operation(Op)
+{
+  var Readout = FKeyPad.result.value;
+  if (FlagNewNum && PendingOp != "=");
+  else
+  {
+    FlagNewNum = true;
+    if ( '+' == PendingOp )
+    Accumulate += parseFloat(Readout);
+    else if ( '-' == PendingOp )
+    Accumulate -= parseFloat(Readout);
+    else if ( '/' == PendingOp )
+    Accumulate /= parseFloat(Readout);
+    else if ( '*' == PendingOp )
+    Accumulate *= parseFloat(Readout);
+    else
+    Accumulate = parseFloat(Readout);
+    FKeyPad.result.value = Accumulate;
+    PendingOp = Op;
+  }
+}
 
-  var re;
-  if((document.frm.result.value)==re)
+function Decimal()
+{
+  var curReadOut = FKeyPad.result.value;
+  if (FlagNewNum)
   {
-    
+    curReadOut = "0.";
+    FlagNewNum = false;
   }
-  function run1()
+  else
   {
-    document.frm.result.value += "1";
+    if (curReadOut.indexOf(".") == -1)
+    curReadOut += ".";
   }
-   function run2()
-  {
-    document.frm.result.value += "2";
-  }
-   function run3()
-  {
-    document.frm.result.value += "3";
-  }
-   function run4()
-  {
-    document.frm.result.value += "4";
-  }
-   function run5()
-  {
-    document.frm.result.value += "5";
-  }
-   function run6()
-  {
-    document.frm.result.value += "6";
-  }
-   function run7()
-  {
-    document.frm.result.value += "7";
-  }
-   function run8()
-  {
-    document.frm.result.value += "8";
-  }
-   function run9()
-  {
-    document.frm.result.value += "9";
-  }
-   function run0()
-  {
-    document.frm.result.value += "0";
-  }
-  function runPlus()
-  {
-    document.frm.result.value += "+";
-  }
-  function runMin()
-  {
-    document.frm.result.value += "-";
-  }
-  function runMul()
-  {
-    document.frm.result.value += "*";
-  }
-  function runDiv()
-  {
-    document.frm.result.value += "/";
-  }
-  function runDot()
-  {
-    document.frm.result.value += ".";
-  }
-  function runEqual()
-  {
-    var evalu = eval(document.frm.result.value)
-    re = evalu;
-    document.frm.result.value = evalu;
-  }
+  FKeyPad.result.value = curReadOut;
+}
+
+function ClearEntry()
+{
+  FKeyPad.result.value = "0";
+  FlagNewNum = true;
+}
+function Clear()
+{
+  Accumulate = 0;
+  PendingOp = "";
+  ClearEntry();
+}
+function Neg()
+{
+  FKeyPad.result.value = parseFloat(FKeyPad.result.value) * -1;
+}
+function Percent()
+{
+  FKeyPad.result.value = (parseFloat(FKeyPad.result.value) / 100) * parseFloat(Accumulate);
+}
+  
   
   
 </script>
