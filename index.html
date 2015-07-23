@@ -23,11 +23,12 @@
 
 <form name="frm">
   
-  <input type="text" name="result" readonly>
+  <input type="text" name="result" size=24 readonly>
   </br>
-  <input type="button" name="1" value="1" OnClick="run1()" style="width:40px">
-  <input type="button" name="2" value="2" OnClick="run2()" style="width:40px">
-  <input type="button" name="3" value="3" OnClick="run3()" style="width:40px">
+  </br>
+  <input type="button" name="7" value="7" OnClick="run7()" style="width:40px">
+  <input type="button" name="8" value="8" OnClick="run8()" style="width:40px">
+  <input type="button" name="9" value="9" OnClick="run9()" style="width:40px">
   <input type="button" name="mul" value="*" OnClick="runMul()" style="width:40px">
   </br>
   <input type="button" name="4" value="4" OnClick="run4()" style="width:40px">
@@ -35,16 +36,42 @@
   <input type="button" name="6" value="6" OnClick="run6()" style="width:40px">
   <input type="button" name="div" value="/" OnClick="runDiv()" style="width:40px">
   </br>
-  <input type="button" name="7" value="7" OnClick="run7()" style="width:40px">
-  <input type="button" name="8" value="8" OnClick="run8()" style="width:40px">
-  <input type="button" name="9" value="9" OnClick="run9()" style="width:40px">
+  <input type="button" name="1" value="1" OnClick="run1()" style="width:40px">
+  <input type="button" name="2" value="2" OnClick="run2()" style="width:40px">
+  <input type="button" name="3" value="3" OnClick="run3()" style="width:40px">
   <input type="button" name="dot" value="." OnClick="runDot()" style="width:40px">
   </br>
   <input type="button" name="plus" value="+" OnClick="runPlus()" style="width:40px">
   <input type="button" name="0" value="0" OnClick="run0()" style="width:40px">
   <input type="button" name="min" value="-" OnClick="runMin()" style="width:40px">
   <input type="button" name="equal" value="=" OnClick="runEqual()" style="width:40px">
+  </br>
+  <input type="button" name="clear" value="C" OnClick="runCl()" style="width:80px">
+  
+  <input id="btn7" type="Button" value="  7  " onclick="NumPressed(7)">
+  <input id="btn8" type="Button" value="  8  " onclick="NumPressed(8)">        
+  <input id="btn9" type="Button" value="  9  " onclick="NumPressed(9)">
+  <input id="btnC" type="Button" value="  C  " onclick="Clear()">
+
+  <input id="btn4" type="Button" value="  4" onclick="NumPressed(4)">
+  <input id="btn5" type="Button" value="  5   "onclick="NumPressed(5)">       
+  <input id="btn6" type="Button" value="  6  " onclick="NumPressed(6)">
+  <input id="btnplusminus" type="Button" value=" +/- " onclick="Neg()">
+  <input id="btnplus" type="Button" value="  +  " onclick="Operation('+')">
+
+  <input id="btn1" type="Button" value="  1  " onclick="NumPressed(1)">
+  <input id="btn2" type="Button" value="  2  " onclick="NumPressed(2)">       
+  <input id="btn3" type="Button" value="  3  " onclick="NumPressed(3)">
+  <input id="btnmultiply" type="Button" value="  *  " onclick="Operation('*')">
+  <input id="btnminus" type="Button" value="   -   " onclick="Operation('-')">
+
+  <input id="btn0" type="Button" value="  0  " onclick="NumPressed(0)">
+  <input id="btndecimal" type="Button" value="   .  " onclick="Decimal()">      
+  <input id="btndivide" type="Button" value="   /   " onclick="Operation('/')">
+  <input id="btnequals" type="Button" value="  =  " onclick="Operation('=')">
+    
 </form>
+
 
 <script>
 
