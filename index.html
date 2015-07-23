@@ -128,12 +128,19 @@ function Clear()
 }
 function Neg()
 {
-   if(FlagNewNum)
+   if(!FlagNewNum)
    {
      FKeyPad.result.value = parseFloat(FKeyPad.result.value) * -1;
+     FlagNewNum = false;
    }
   else
-  FKeyPad.result.value = "-";
+  {
+  if(FKeyPad.result.value == "0")
+      FKeyPad.result.value = "-";
+    else
+      FKeyPad.result.value = "-";
+  }
+  
 }
 function Percent()
 {
