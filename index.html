@@ -45,9 +45,9 @@
   <input type="button" name="min" value="-" OnClick="Operation('-')" style="width:40px">
   <input type="button" name="equal" value="=" OnClick="Operation('=')" style="width:40px">
   </br>
-  <input type="button" name="plusminus" value="+/-" OnClick="Neg()" style="width:75px">
-  <input type="button" name="clear" value="C" OnClick="Clear()" style="width:75px">
-  
+  <input type="button" name="plusminus" value="+/-" OnClick="Neg()" style="width:60px">
+  <input type="button" name="clear" value="C" OnClick="Clear()" style="width:60px">
+  <input type="button" name="per" value="%" OnClick="Percent()" style="width:60px">
       
   
   
@@ -128,17 +128,18 @@ function Clear()
 }
 function Neg()
 {
-   if(!FlagNewNum)
+   if(FlagNewNum)
    {
-     FKeyPad.result.value = parseFloat(FKeyPad.result.value) * -1;
+     
+     FKeyPad.result.value = "-";
      FlagNewNum = false;
    }
-  else
-  {
-  if(FKeyPad.result.value == "0")
+  else if(FKeyPad.result.value == "0")
+      FKeyPad.result.value = "-";
+  else if(FKeyPad.result.value == "")
       FKeyPad.result.value = "-";
     else
-      FKeyPad.result.value = "-";
+      FKeyPad.result.value = parseFloat(FKeyPad.result.value) * -1;
   }
   
 }
