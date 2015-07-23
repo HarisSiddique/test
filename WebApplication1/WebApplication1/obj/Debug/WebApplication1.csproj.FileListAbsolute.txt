@@ -1,5 +1,0 @@
-C:\Users\Haris Siddique\Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\bin\WebApplication1.dll
-C:\Users\Haris Siddique\Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\bin\WebApplication1.pdb
-C:\Users\Haris Siddique\Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Haris Siddique\Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
-C:\Users\Haris Siddique\Documents\Visual Studio 2008\Projects\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
