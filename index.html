@@ -86,18 +86,19 @@ function Operation(Op)
     FlagNewNum = true;
     if ( '+' == PendingOp )
     {    Accumulate += parseFloat(Readout);
-    FKeyPad.result.value += op; }
+    Readout += op; }
     else if ( '-' == PendingOp )
     { Accumulate -= parseFloat(Readout);
-    FKeyPad.result.value += op; }
+    Readout += op; }
     else if ( '/' == PendingOp )
     { Accumulate /= parseFloat(Readout);
-    FKeyPad.result.value += op; }
+    Readout += op; }
     else if ( '*' == PendingOp )
     { Accumulate *= parseFloat(Readout);
-    FKeyPad.result.value += op; }
+    Readout += op; }
     else
-    Accumulate = parseFloat(Readout);
+    { Accumulate = parseFloat(Readout);
+    Readout +=op; }
     FKeyPad.result.value = Accumulate;
     PendingOp = Op;
   }
