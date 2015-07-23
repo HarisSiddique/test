@@ -85,13 +85,17 @@ function Operation(Op)
   {
     FlagNewNum = true;
     if ( '+' == PendingOp )
-    Accumulate += parseFloat(Readout);
+    {    Accumulate += parseFloat(Readout);
+    FKeyPad.result.value += op; }
     else if ( '-' == PendingOp )
-    Accumulate -= parseFloat(Readout);
+    { Accumulate -= parseFloat(Readout);
+    FKeyPad.result.value += op; }
     else if ( '/' == PendingOp )
-    Accumulate /= parseFloat(Readout);
+    { Accumulate /= parseFloat(Readout);
+    FKeyPad.result.value += op; }
     else if ( '*' == PendingOp )
-    Accumulate *= parseFloat(Readout);
+    { Accumulate *= parseFloat(Readout);
+    FKeyPad.result.value += op; }
     else
     Accumulate = parseFloat(Readout);
     FKeyPad.result.value = Accumulate;
